@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block head %}
+    <title>Calendar Events</title>
+
+{% endblock %}
+
+{% block body %}
+    <body style="background-color: antiquewhite;">
+        <h1>Imminent Events</h1>
+        <table class = "table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Start</th>
+                    <th>End</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for event in events %}
+                    <tr>
+                        <td>{{ event.summary }}</td>
+                        <td>{{ event.start_time }}</td>
+                        <td>{{ event.end_time }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </body>
+{% endblock %}

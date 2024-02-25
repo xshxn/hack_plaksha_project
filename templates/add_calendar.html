@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block head %}
+    <title>Add Calendar Event</title>
+{% endblock %}
+
+{% block body %}
+    <body style="background-color: antiquewhite;">
+        <h1>Add Calendar Event</h1>
+        <form action = "/add_calendar" method = "post">
+            <div class = "login-form">
+                <label for="task1">Enter task</label>
+                <input type="text" id="task1" name="task1" required>
+                <p></p>
+                <label for="start">Enter Start Date</label>
+                <input type="date" id="start" name="start" required>
+                <p></p>
+                <label for="starttime">Enter Start Time</label>
+                <input type="time" id="starttime" name="starttime" required>
+                <p></p>
+                <label for="end">Enter End Date</label>
+                <input type="date" id="end" name="end" required>
+                <p></p>
+                <label for="endtime">Enter End Time</label>
+                <input type="time" id="endtime" name="endtime" required>
+                <p></p>
+                <button type="submit">Submit</button>
+
+            </div>
+        </form>
+    </body>
+{% endblock %}

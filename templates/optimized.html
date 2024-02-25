@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    <title>Optimized</title>
+
+{% endblock %}
+
+{% block body %}
+    <body style="background-color: antiquewhite;">
+        <h1>Optimized</h1>
+        <table class = "table">
+            <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>Duration to Study (minutes)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in range(tasks|length) %}
+                    <tr>
+                        <td>{{ tasks[i] }}</td>
+                        <td>{{ times[i] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </body>
+{% endblock %}

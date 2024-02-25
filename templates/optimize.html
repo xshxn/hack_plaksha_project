@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block head %}
+    <title>Optimize</title>
+{% endblock %}
+
+{% block body %}
+    <h1>Optimize Tasks</h1>
+    <body style="background-color: antiquewhite;">
+        <form action = "/optimize" method = "post">
+            <div class = "login-form">
+                <label for="avltime">Enter available time (in min)</label>
+                <input type="number" step = "5" id="avltime" name="avltime" required>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </body>
+
+{% endblock %}

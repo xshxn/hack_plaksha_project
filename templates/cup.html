@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Coffee Cup</title>
+    <style>
+        body {
+            background-color: rgb(37, 43, 41);
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            justify-content: center;
+        }
+
+        .cup {
+            background: transparent;
+            height: 140px;
+            width: 180px;
+            position: absolute;
+            top: 40%;
+            left: 40%;
+            border-radius: 0px 0px 70px 70px;
+            box-shadow: 0px 0px 0px 6px white;
+            overflow: hidden;
+        }
+
+        .filler {
+            height: 0; /* Start animation from 0 height */
+            width: 180px;
+            border-radius: 0px 0px 70px 70px;
+            overflow: hidden;
+            position: absolute;
+            bottom: 0;
+            background-color: #7c5438;
+        }
+
+        .handle {
+            height: 70px;
+            width: 40px;
+            background-color: transparent;
+            border: 6px solid white;
+            position: absolute;
+            left: 726px;
+            top: 250px;
+            overflow: hidden;
+            border-radius: 0px 25px 80px 0px;
+        }
+
+        #counter {
+            font-size: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="hidden" id="numEvents" value="{{ num_events }}">
+    <!-- Output num_events to check its value -->
+
+    <div class="cup">
+        <div class="filler" id="filler"></div>
+    </div>
+    <div id="counter">0 mg</div>
+    <div class="handle"></div>
+
+    <script>
+        const numEvents = parseInt(document.getElementById('numEvents').value);  // Get the number of events from the hidden input field
+        console.log("Number of events:", document.getElementById('numEvents').value);
+        let count = 0;
+        let maxValue;
+        const filler = document.getElementById('filler');
+
+        if (numEvents > 0 && numEvents <= 10) {
+            maxValue = numEvents * 100;  // Adjust maximum value based on the number of events
+        } else {
+            maxValue = 1000;  // Cap maximum value at 1000mg
+        }
+
+        setInterval(() => {
+            count += 10; // Increase by 10mg (adjust as needed)
+            document.getElementById('counter').textContent = `${count} mg`;
+
+            if (count > maxValue) {
+                count = maxValue; // Cap the count at the calculated maximum value
+                document.getElementById('counter').textContent = `${count} mg`;
+                clearInterval(); // Stop the interval
+            }
+
+            const percentage = (count / maxValue) * 100;
+            filler.style.height = `${percentage}%`; // Set height dynamically
+        }, 82);
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+{% block head %}
+    <title>optimizer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            font-family: Arial, sans-serif; /* Set the font for the entire page */
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            height: 100vh; /* Full height of the viewport */
+            padding: 20px; /* Add padding to all sides */
+        }
+
+        
+
+        #coolMessage {
+            font-size: 30px; /* Increased font size */
+            color: black; /* Set color to black */
+            text-align: left; /* Align text to the left */
+            opacity: 0;
+            animation: fadeIn 10s forwards;
+            margin-left: 20px; /* Adjust the margin as needed */
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Add slight shadow */
+        }
+
+        #photo {
+            max-width: 900px; /* Set the maximum width for the image */
+            height: auto;
+            opacity: 0;
+            animation: fadeIn 10s forwards;
+            margin-right: 20px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+{% endblock %}
+{% block body %}
+<body style="background-color: antiquewhite;">
+    
+
+    <div class="container">
+        <!-- Add your photo here -->
+        <img id="photo" src="https://bpb-us-e1.wpmucdn.com/wp.wwu.edu/dist/0/7233/files/2019/10/agenda-black-calendar-273011.jpg" alt="Your Photo">
+
+        <div id="coolMessage">
+            <div>Hello</div>
+            <div>Welcome {{ name }}</div>
+        </div>
+    </div>
+</body>
+{% endblock %}
